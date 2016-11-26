@@ -1,0 +1,23 @@
+#mano {
+    background-color: #d62728;
+}
+
+#virsus {
+    background-color: yellow;
+}
+
+#navigacija {;
+    margin-bottom: 35px;
+}
+
+#form-virsus {
+    margin-top: 10px;
+}
+
+#forma>input {
+    width: 50px;
+}
+
+#forma-2>input {
+    width: 20px;
+}
