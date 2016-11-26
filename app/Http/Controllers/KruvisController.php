@@ -49,11 +49,44 @@ class KruvisController extends Controller
      */
     public function store(Request $request)
     {
+
         $kruvis = new Kruvis;
         $kruvis->module_id = $request->module_id;
         $kruvis->grupe_id = $request->grupe_id;
         $kruvis->teacher_id = $request->teacher_id;
-        //dd($kruvis);
+
+        $module = Module::find($request->module_id);
+        $grupe = Grupe::find($request->grupe_id);
+
+        $teor_srautai = $grupe->studentu_sk > 30 ? 2 : 1;
+        $T = $module->T;
+        $teor = $T * $teor_srautai;
+        $teor = round($teor, 2);
+
+        $prat_srautai = $grupe->studentu_sk > 12 ? 2 : 1;
+        $P = $module->P;
+        $prat = $P * $prat_srautai;
+        $prat = round($prat, 2);
+
+        $lab_srautai = $grupe->studentu_sk > 12 ? 2 : 1;
+        $L = $module->L;
+        $lab = $L * $lab_srautai;
+        $lab = round($lab, 2);
+
+        $koef = 0.48 * $module->savarankiskas / 20;
+        $savarankiskas = $grupe->studentu_sk * $koef;
+        $savarankiskas = round($savarankiskas, 2);
+
+                
+        $viso_val = $teor + $prat + $lab + $savarankiskas;
+        $viso_val = round($viso_val, 2);
+
+        $kruvis->teor = $teor;
+        $kruvis->prat = $prat;
+        $kruvis->lab = $lab;
+        $kruvis->savarankiskas = $savarankiskas;
+        $kruvis->viso_val = $viso_val;
+
         $kruvis->save();
 
 

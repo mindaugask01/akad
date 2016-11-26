@@ -10,7 +10,7 @@ class Module extends Model
 
     public function kruvis()
     {
-        return $this->belongsTo('App\Kruvis');
+        return $this->hasMany('App\Kruvis');
     }
 
 //    public function kruvis()

@@ -8,7 +8,6 @@
 
     <div class="row">
         <div class="col-md-12">
-                <p>{{ $modules }}</p>
 
             {!! Form::open(['route' => 'kruvis.store']) !!}
             <table class="table-condensed" id="form-virsus">
