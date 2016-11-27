@@ -70,7 +70,7 @@
                         <td>{{ $kruvis->savarankiskas }}</td>
                         <td>{{ $kruvis->viso_val }}</td>
                         <td>{{ $kruvis->teacher->name . " " . $kruvis->teacher->surname}}</td>
-                        <td><a href="" class="btn btn-success btn-sm">Redaguoti</a> <a href="" class="btn btn-danger btn-sm">Trinti</a></td>
+                        <td><a href="{{ route('valandos.naujas', $kruvis->module->id) }}" class="btn btn-success btn-sm">Priskirti valandas</a> <a href="" class="btn btn-danger btn-sm">Trinti</a></td>
                     </tr>
                 @endforeach
 

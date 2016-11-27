@@ -46,7 +46,9 @@ Route::get('logout1', 'UserController@getLogout')->name('getLogout');
 
 Route::get('kruvis/{id}', 'KruvisController@mano');
 
-//Route::get('kruvis/create/{id}', 'KruvisController@naujas')->name('kruviai.create');
+Route::resource('valandos', 'ValandosController');
+
+Route::get('valandos/naujas/{id}', 'ValandosController@naujas')->name('valandos.naujas');
 
 
 
