@@ -27,7 +27,7 @@
                     <td>
                     <select class="form-control" name="module_id">
                         @foreach($modules as $module)
-                            <option value="{{ $module->id }}">{{ $module->name }}</option>
+                            <option value="{{ $module->id }}">{{ $module->code . " | " . $module->name }}</option>
                         @endforeach
                     </select>
                     </td>

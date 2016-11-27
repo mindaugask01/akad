@@ -30,9 +30,9 @@
                     <th>Stud. sk.</th>
                     <th>Teor. srautų sk.</th>
                     <th>Val</th>
-                    <th>Gr. sk.</th>
+                    <th>Prat. gr. sk.</th>
                     <th>Val</th>
-                    <th>Pogr. sk.</th>
+                    <th>Lab. pogr. sk.</th>
                     <th>Val</th>
                     <th>Koef</th>
                     <th>Sav. darbo</th>
@@ -60,15 +60,15 @@
                         <td>{{ $kruvis->module->pakopa }}</td>
                         <td>{{ $kruvis->module->semestras }}</td>
                         <td>{{ $kruvis->grupe->studentu_sk }}</td>
-                        <td>{{ $srautai_T = $kruvis->grupe->studentu_sk > 30 ? 2 : 1 }}</td>
-                        <td>{{ $teorija = $kruvis->module->T * $srautai_T }}</td>
-                        <td>{{ $grupes_P = $kruvis->grupe->studentu_sk > 12 ? 2 : 1 }}</td>
-                        <td>{{ $pratybos = $kruvis->module->P * $grupes_P }}</td>
-                        <td>{{ $grupes_L = $kruvis->grupe->studentu_sk > 12 ? 2 : 1 }}</td>
-                        <td>{{ $laboratoriniai = $kruvis->module->P * $grupes_L }}</td>
-                        <td>{{ $koef = (0.48 * $kruvis->module->savarankiskas)/20 }}</td>
-                        <td>{{ $savarankiskas = $koef * $kruvis->grupe->studentu_sk }}</td>
-                        <td>{{ $viso = $savarankiskas + $teorija + $pratybos + $laboratoriniai }}</td>
+                        <td>{{ $kruvis->grupe->studentu_sk > 30 ? 2 : 1 }}</td>
+                        <td>{{ $kruvis->teor }}</td>
+                        <td>{{ $kruvis->grupe->studentu_sk > 12 ? 2 : 1 }}</td>
+                        <td>{{ $kruvis->prat }}</td>
+                        <td>{{ $kruvis->grupe->studentu_sk > 12 ? 2 : 1 }}</td>
+                        <td>{{ $kruvis->lab }}</td>
+                        <td>{{ $kruvis->koef }}</td>
+                        <td>{{ $kruvis->savarankiskas }}</td>
+                        <td>{{ $kruvis->viso_val }}</td>
                         <td>{{ $kruvis->teacher->name . " " . $kruvis->teacher->surname}}</td>
                         <td><a href="" class="btn btn-success btn-sm">Redaguoti</a> <a href="" class="btn btn-danger btn-sm">Trinti</a></td>
                     </tr>
