@@ -11,4 +11,9 @@ class Valanda extends Model
     {
         return $this->hasMany('App\Module');
     }
+    
+    public function teacher()
+    {
+        return $this->belongsToMany('App\Teacher', 'teachers_valandos', 'teacher_id', 'valandos_id');
+    }
 }

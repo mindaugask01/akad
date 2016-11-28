@@ -15,4 +15,9 @@ class Teacher extends Model
     public function teacher() {
         return $this->hasMany('App\Kruvis');
     }
+    
+    public function valandos() 
+    {
+        return $this->belongsToMany('App\Valanda', 'teachers_valandos', 'teacher_id', 'valandos_id');
+    }
 }

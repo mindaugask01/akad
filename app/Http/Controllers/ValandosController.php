@@ -43,6 +43,8 @@ class ValandosController extends Controller
         $valandos->module_id     = $request->module_id;
         $valandos->valandos     = $request->valandos;
         $valandos->save();
+        
+        $valandos->teacher()->sync($request->teachers, false);
 
         Session::flash('success', 'Išsaugota');
         return redirect()->route('kruvis.index');
