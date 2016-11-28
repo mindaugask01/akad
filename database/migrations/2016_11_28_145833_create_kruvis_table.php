@@ -19,8 +19,10 @@ class CreateKruvisTable extends Migration
             $table->foreign('module_id')->references('id')->on('modules');
             $table->integer('grupe_id')->unsigned()->nullable();
             $table->foreign('grupe_id')->references('id')->on('grupes');
-            $table->integer('teacher_id')->nullable()->unsigned();
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            
+            $table->integer('valanda_id')->unsigned()->nullable();
+            $table->foreign('valanda_id')->references('id')->on('valandos');
+            
             $table->integer('teor')->nullable()->unsigned();
             $table->integer('prat')->nullable()->unsigned();
             $table->integer('lab')->nullable()->unsigned();

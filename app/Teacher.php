@@ -12,12 +12,16 @@ class Teacher extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function teacher() {
+/*    public function kruvis() {
         return $this->hasMany('App\Kruvis');
+    }*/
+
+    public function valanda() {
+        return $this->hasMany('App\Valanda');
     }
     
-    public function valandos() 
+/*    public function valandos()
     {
         return $this->belongsToMany('App\Valanda', 'teachers_valandos', 'teacher_id', 'valandos_id');
-    }
+    }*/
 }

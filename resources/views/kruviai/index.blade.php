@@ -9,7 +9,6 @@
 
         <div class="row">
         <div class="col-md-12">
-
             <a href="{{ route('kruvis.create') }}" class="btn btn-success">Sukurti naują įrašą</a>
             <table class="table" id="form-virsus">
                 <thead>
@@ -37,7 +36,7 @@
                     <th>Koef</th>
                     <th>Sav. darbo</th>
                     <th>Iš viso val</th>
-                    <th>Dėst.</th>
+                    <th>Priskirta dėst.</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -69,7 +68,10 @@
                         <td>{{ $kruvis->koef }}</td>
                         <td>{{ $kruvis->savarankiskas }}</td>
                         <td>{{ $kruvis->viso_val }}</td>
-                        <td>{{ $kruvis->teacher->name . " " . $kruvis->teacher->surname}}</td>
+                        <td>
+
+                        </td>
+
                         <td><a href="{{ route('valandos.naujas', $kruvis->module->id) }}" class="btn btn-success btn-sm">Priskirti valandas</a> <a href="" class="btn btn-danger btn-sm">Trinti</a></td>
                     </tr>
                 @endforeach

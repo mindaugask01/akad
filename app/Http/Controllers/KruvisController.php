@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kruvis;
+use App\Valanda;
 use Illuminate\Http\Request;
 use App\Module;
 use App\Teacher;
@@ -25,7 +26,8 @@ class KruvisController extends Controller
         $kruviai = Kruvis::all();
         $grupes = Grupe::all();
         $teachers = Teacher::all();
-        return view('kruviai.index')->withKruviai($kruviai)->withGrupes($grupes)->withTeachers($teachers);
+        $valandos = Valanda::all();
+        return view('kruviai.index')->withKruviai($kruviai)->withGrupes($grupes)->withTeachers($teachers)->withValandos($valandos);
     }
 
     /**
@@ -37,8 +39,8 @@ class KruvisController extends Controller
     {
         $modules = Module::all();
         $grupes = Grupe::all();
-        $teachers = Teacher::all();
-        return view('kruviai.create')->withModules($modules)->withGrupes($grupes)->withTeachers($teachers);
+
+        return view('kruviai.create')->withModules($modules)->withGrupes($grupes);
     }
 
     /**
@@ -53,7 +55,7 @@ class KruvisController extends Controller
         $kruvis = new Kruvis;
         $kruvis->module_id = $request->module_id;
         $kruvis->grupe_id = $request->grupe_id;
-        $kruvis->teacher_id = $request->teacher_id;
+        //$kruvis->teacher_id = $request->teacher_id;
 
         $module = Module::find($request->module_id);
         $grupe = Grupe::find($request->grupe_id);

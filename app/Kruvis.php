@@ -22,14 +22,19 @@ class Kruvis extends Model
     {
         return $this->belongsTo('App\Module');
     }
-    public function teacher() 
+/*    public function teacher() 
     {
         return $this->belongsTo('App\Teacher');    
-    }
+    }*/
 
     public function programa()
     {
         return $this->belongsTo('App\Programa');
+    }
+
+    public function valanda()
+    {
+        return $this->belongsTo('App\Valanda');
     }
 
 

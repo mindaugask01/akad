@@ -74,7 +74,7 @@
                     </td>
 
                     <td>
-                        {{ Form::number('L', $kruvis->savarankiskas, ['class' => 'form-control']) }}
+                        {{ Form::number('savarankiskas', $kruvis->savarankiskas, ['class' => 'form-control']) }}
                     </td>
                 </tr>
 

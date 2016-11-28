@@ -21,6 +21,7 @@ class Valandos extends Migration
             $table->integer('T')->nullable()->unsigned();
             $table->integer('P')->nullable()->unsigned();
             $table->integer('L')->nullable()->unsigned();
+            $table->integer('savarankiskas')->nullable()->unsigned();
 
             $table->timestamps();
         });
