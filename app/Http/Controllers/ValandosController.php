@@ -115,7 +115,7 @@ class ValandosController extends Controller
             echo $val->valandos;
         }*/
         //dd($val);
-
+        //aaaa
 
         return view('valandos.create')
             ->withKruvis($kruvis)
