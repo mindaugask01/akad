@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Kruvis;
+use App\Module;
 use App\Teacher;
 use App\Valanda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class ValandosController extends Controller
 {
@@ -41,6 +44,7 @@ class ValandosController extends Controller
         $valandos = new Valanda;
         $valandos->teacher_id = $request->teacher_id;
         $valandos->module_id     = $request->module_id;
+        $valandos->kruvis_id = $request->kruvis_id;
         $valandos->valandos     = $request->valandos;
         $valandos->T     = $request->T;
         $valandos->P     = $request->P;
@@ -102,7 +106,22 @@ class ValandosController extends Controller
     public function naujas($id) 
     {
         $kruvis = Kruvis::find($id);
+        $modules = Module::all();
         $teachers = Teacher::all();
-        return view('valandos.create')->withKruvis($kruvis)->withTeachers($teachers);
+        //$vala = Valanda::where('module_id', $kruvis->module_id)->get();
+        $sunaudota_val = Valanda::where('module_id', $kruvis->module_id)->get();
+
+        /*foreach ($vala as $val) {
+            echo $val->valandos;
+        }*/
+        //dd($val);
+
+
+        return view('valandos.create')
+            ->withKruvis($kruvis)
+            ->withTeachers($teachers)
+            ->withModules($modules)
+            ->withSunaudota_val($sunaudota_val)
+            ;
     }
 }

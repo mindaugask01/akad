@@ -17,6 +17,7 @@ class Valandos extends Migration
             $table->increments('id');
             $table->integer('teacher_id')->nullable()->unsigned();
             $table->integer('module_id')->nullable()->unsigned();
+            $table->integer('kruvis_id')->nullable()->unsigned();
             $table->decimal('valandos', 10, 2)->nullable()->unsigned();
             $table->integer('T')->nullable()->unsigned();
             $table->integer('P')->nullable()->unsigned();

@@ -72,7 +72,7 @@
 
                         </td>
 
-                        <td><a href="{{ route('valandos.naujas', $kruvis->module->id) }}" class="btn btn-success btn-sm">Priskirti valandas</a> <a href="" class="btn btn-danger btn-sm">Trinti</a></td>
+                        <td><a href="{{ route('valandos.naujas', $kruvis->id) }}" class="btn btn-success btn-sm">Priskirti valandas</a> <a href="" class="btn btn-danger btn-sm">Trinti</a></td>
                     </tr>
                 @endforeach
 

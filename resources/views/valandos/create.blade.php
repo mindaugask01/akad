@@ -1,28 +1,27 @@
 @extends('main')
-
 @section('title', '| Sukurti modulį')
-
-@section('stylesheets')
-    {!! Html::style('css/select2.min.css') !!}
 @section('content')
     @include('partials._nav-back')
-
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-
             <table class="table">
                 <thead>
                     <th>Modulis</th>
                     <th>Viso valandų</th>
+                    <th>Sunaudota valandų</th>
                     <th>Viso: T</th>
                     <th>Viso: P</th>
                     <th>Viso: L</th>
                 </thead>
-
                 <tbody>
                     <tr>
                         <td>{{ $kruvis->module->name }}</td>
                         <td>{{ $kruvis-> viso_val}}</td>
+                        <td>
+                        @foreach($sunaudota_val as $val)
+                            <p>{{ $val->valandos. ", " . $val->teacher->name . " " . $val->teacher->surname }}</p>
+                            @endforeach
+                        </td>
                         <td>{{ $kruvis-> teor}}</td>
                         <td>{{ $kruvis-> prat}}</td>
                         <td>{{ $kruvis-> lab}}</td>
@@ -49,6 +48,7 @@
                 <tr>
                     <td>
                         {{ Form::hidden('module_id', $kruvis->module->id) }}
+                        {{ Form::hidden('kruvis_id', $kruvis->id) }}
                         <select class="form-control" name="teacher_id">
                             @foreach($teachers as $teacher)
                                 <option value="{{ $teacher->id }}">{{ $teacher->name . " " . $teacher->surname }}</option>
@@ -89,8 +89,8 @@
             {!! Form::close() !!}
         </div>
     </div>
-@stop
-@section('scripts')
+
+
 
 
 @stop
