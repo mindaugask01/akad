@@ -111,9 +111,10 @@ class ValandosController extends Controller
         //$vala = Valanda::where('module_id', $kruvis->module_id)->get();
         $sunaudota_val = Valanda::where('module_id', $kruvis->module_id)->get();
 
-        /*foreach ($vala as $val) {
-            echo $val->valandos;
-        }*/
+        foreach ($sunaudota_val as $val) {
+            $sunaudota = $val->valandos;
+            echo $sunaudota;
+        }
         //dd($val);
         //aaaa
 

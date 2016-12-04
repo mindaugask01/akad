@@ -6,29 +6,83 @@
         <div class="col-md-10 col-md-offset-1">
             <table class="table">
                 <thead>
-                    <th>Modulis</th>
-                    <th>Viso valandų</th>
-                    <th>Sunaudota valandų</th>
-                    <th>Viso: T</th>
-                    <th>Viso: P</th>
-                    <th>Viso: L</th>
+                <th>Modulis</th>
+                <th>Viso valandų</th>
+                <th>Viso: T</th>
+                <th>Viso: P</th>
+                <th>Viso: L</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{{ $kruvis->module->name }}</td>
-                        <td>{{ $kruvis-> viso_val}}</td>
-                        <td>
-                        @foreach($sunaudota_val as $val)
-                            <p>{{ $val->valandos. ", " . $val->teacher->name . " " . $val->teacher->surname }}</p>
-                            @endforeach
-                        </td>
-                        <td>{{ $kruvis-> teor}}</td>
-                        <td>{{ $kruvis-> prat}}</td>
-                        <td>{{ $kruvis-> lab}}</td>
-                    </tr>
+                <tr>
+                    <td>{{ $kruvis->module->name }}</td>
+                    <td>{{ $kruvis-> viso_val}}</td>
+
+                    <td>{{ $kruvis-> teor}}</td>
+                    <td>{{ $kruvis-> prat}}</td>
+                    <td>{{ $kruvis-> lab}}</td>
+                <thead>
+                <th>Dėstytojas</th>
+                <th>Sunaudota valandų</th>
+                <th>Sunaudota: T</th>
+                <th>Sunaudota: P</th>
+                <th>Sunaudota: L</th>
+                </thead>
+                <td>
+                    @foreach($sunaudota_val as $val)
+                        <p>{{ $val->teacher->name . " " . $val->teacher->surname }}</p>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach($sunaudota_val as $val)
+                        <p>{{ $val->valandos }}</p>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach($sunaudota_val as $val)
+                        <p>{{ $val->T }}</p>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach($sunaudota_val as $val)
+                        <p>{{ $val->P }}</p>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach($sunaudota_val as $val)
+                        <p>{{ $val->L }}</p>
+                    @endforeach
+                </td>
+                <thead>
+                <th>Viso:</th>
+                <th>Viso sunaudota valandų</th>
+                <th>Viso sunaudota: T</th>
+                <th>Viso sunaudota: P</th>
+                <th>Viso sunaudota: L</th>
+                </thead>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+
+                <thead>
+                <th>Likutis:</th>
+                <th>Likutis viso</th>
+                <th>Likutis: T</th>
+                <th>Likutis: P</th>
+                <th>Likutis: L</th>
+                </thead>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
                 </tbody>
 
             </table>
+
 
             {!! Form::open(['route' => 'valandos.store']) !!}
             <table class="table-condensed" id="form-virsus">
