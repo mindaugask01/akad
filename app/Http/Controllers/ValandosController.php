@@ -110,19 +110,36 @@ class ValandosController extends Controller
         $teachers = Teacher::all();
         //$vala = Valanda::where('module_id', $kruvis->module_id)->get();
         $sunaudota_val = Valanda::where('module_id', $kruvis->module_id)->get();
-
+        $sunaudota = 0;
+        $tsunaudota = 0;
+        $psunaudota = 0;
+        $lsunaudota = 0;
         foreach ($sunaudota_val as $val) {
-            $sunaudota = $val->valandos;
-            echo $sunaudota;
+            $sunaudota += $val->valandos;
+            $tsunaudota += $val->T;
+            $psunaudota += $val->P;
+            $lsunaudota += $val->L;
         }
-        //dd($val);
-        //aaaa
+
+        $likutis = $kruvis->viso_val - $sunaudota;
+        $likutist = $kruvis->teor - $tsunaudota;
+        $likutisp = $kruvis->prat - $psunaudota;
+        $likutisl = $kruvis->lab - $lsunaudota;
+        
 
         return view('valandos.create')
             ->withKruvis($kruvis)
             ->withTeachers($teachers)
             ->withModules($modules)
             ->withSunaudota_val($sunaudota_val)
+            ->withSunaudota($sunaudota)
+            ->withTsunaudota($tsunaudota)
+            ->withPsunaudota($psunaudota)
+            ->withLsunaudota($lsunaudota)
+            ->withLikutis($likutis)
+            ->withLikutist($likutist)
+            ->withLikutisp($likutisp)
+            ->withLikutisl($likutisl)
             ;
     }
 }

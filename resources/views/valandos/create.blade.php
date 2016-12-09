@@ -60,10 +60,10 @@
                 <th>Viso sunaudota: L</th>
                 </thead>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ $sunaudota }}</td>
+                <td>{{ $tsunaudota }}</td>
+                <td>{{ $psunaudota }}</td>
+                <td>{{ $lsunaudota }}</td>
                 </tr>
 
                 <thead>
@@ -74,10 +74,10 @@
                 <th>Likutis: L</th>
                 </thead>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ $likutis }}</td>
+                <td>{{ $likutist }}</td>
+                <td>{{ $likutisp }}</td>
+                <td>{{ $likutisl }}</td>
 
                 </tbody>
 
@@ -135,12 +135,14 @@
                 </tbody>
             </table>
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    {{ Form::submit('Išsaugoti', ['class' => 'btn btn-success center btn-block', 'style' => 'margin-top:50px;']) }}
+                <div class="col-md-6 col-md-offset-4">
+                    {{ Form::submit('Išsaugoti', ['class' => 'btn btn-success center', 'style' => 'margin-top:50px;']) }}
+                    <a href="{{ URL::to('kruvis') }}" class="btn btn-danger" style="margin-top:50px;">Atšaukti</a>
                 </div>
             </div>
 
             {!! Form::close() !!}
+
         </div>
     </div>
 
